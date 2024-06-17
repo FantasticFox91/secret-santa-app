@@ -1,0 +1,52 @@
+services:
+  nuxt:
+    build: ./nuxt
+    expose:
+      - 3000
+    restart: always
+
+  nestjs:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    expose:
+      - 3001
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: test
+    ports:
+      - 5000
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 12345
+      PMA_ARBITRARY: 1
+
+  nginx:
+    depends_on:
+      - nuxt
+      - nestjs
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./logs:/var/log/nginx/
+    restart: always
+
+volumes:
+  db_data:
