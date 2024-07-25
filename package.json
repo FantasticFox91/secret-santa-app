@@ -1,0 +1,12 @@
+{
+  "name": "secret-santa-app",
+  "version": "1.0.0",
+  "description": "Secret Santa App",
+  "main": "index.js",
+  "scripts": {
+    "update": "git submodule init && git submodule update"
+  },
+  "author": "Grygorii Lysytsia <grygorii_lysytsia@hotmail.com>",
+  "license": "ISC",
+  "repository": "git@github.com:FantasticFox91/secret-santa-app.git"
+}
