@@ -2,7 +2,9 @@
 	path = nuxt
 	url = https://github.com/FantasticFox91/secret-santa-frontend
 	update = rebase
+	branch = main
 [submodule "backend"]
 	path = backend
 	url = https://github.com/FantasticFox91/secret-santa-backend
 	update = rebase
+	branch = main
