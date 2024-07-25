@@ -1,6 +1,8 @@
 [submodule "nuxt"]
 	path = nuxt
 	url = https://github.com/FantasticFox91/secret-santa-frontend
+	update = rebase
 [submodule "backend"]
 	path = backend
 	url = https://github.com/FantasticFox91/secret-santa-backend
+	update = rebase
