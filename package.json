@@ -4,7 +4,8 @@
   "description": "Secret Santa App",
   "main": "index.js",
   "scripts": {
-    "update": "git submodule init && git submodule update"
+    "update": "git submodule init && git submodule update --remote --merge",
+    "start": "cd backend && yarn add @prisma/client && npx prisma generate && docker-compose up --build -d && cd nuxt && yarn install && yarn dev"
   },
   "author": "Grygorii Lysytsia <grygorii_lysytsia@hotmail.com>",
   "license": "ISC",
